@@ -40,11 +40,14 @@ def handle_message(event):
     msg = event.message.text
     r = "I don't understand"
     if 'sticker' in msg:
-    line_bot_api.reply_message(
-        event.reply_token,
-        sticker_message = StickerSendMessage(
+    sticker_message = StickerSendMessage(
         package_id='1',
-        sticker_id='1'))
+        sticker_id='1'
+    )  
+
+    line_bot_api.reply_message(
+    event.reply_token,
+    sticker_message)
     return
     
     if msg in ['hi', 'Hi']:
