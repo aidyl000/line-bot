@@ -39,10 +39,14 @@ def callback():
 def handle_message(event):
     msg = event.message.text
     r = "I don't understand"
-    if msg == 'hi':
+    if msg in ['hi', 'Hi']:
         r = "hello"
-    elif msg == "Did you sleep well?"
+    elif msg == "Did you sleep well?":
         r = "Nooooooooooooo"
+    elif msg == 'who are you?':
+        r = 'I am not existing'
+    elif 'reservation' in msg:
+        r = 'do you want make a reservation?'
     line_bot_api.reply_message(
         event.reply_token,
         TextSendMessage(text=r))
